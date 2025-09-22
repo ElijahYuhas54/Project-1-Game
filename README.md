@@ -43,7 +43,6 @@ On Steam Deck or mobile, players can use **touch gestures** to draw light paths 
 **HUD Elements**: Light meter, health bar, NPC empowerment tracker.  
 **Enemy Design**: Shadow creatures that react to light differently (some flee, some attack, some transform).  
 **Empowerment Scenes**: NPCs regain color and stand tall after being helped. Some join Kael and offer gameplay benefits (e.g., open shortcuts, give items).  
-**AI Image Note**: Any AI-generated images used will be clearly marked as "AI Image".
 
 ---
 
