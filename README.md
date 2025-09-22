@@ -49,10 +49,11 @@ On Steam Deck or mobile, players can use **touch gestures** to draw light paths 
 
 ## 📚 Research Items & References
 
-1. **Empowerment Theory in Game Design** – Helped shape the idea of giving players meaningful choices that affect the world and NPCs.  
-2. **Celeste** (Matt Makes Games) – Inspired the emotional storytelling and platforming mechanics tied to personal growth.  
-3. **Journey** (Thatgamecompany) – Influenced the visual storytelling and use of environment to reflect emotional states.  
-4. **Light and Shadow Mechanics in Puzzle Games** – Provided insight into designing engaging puzzles that reinforce the empowerment theme.
+- **Research & References**:
+1. **Neon White** – Influenced the fast-paced movement and fluid traversal mechanics. Its emphasis on speed and precision helped shape the light-dash and puzzle-solving aspects of Kael’s abilities.
+2. **Jet Set Radio** – Inspired the visual style and rebellious tone of the game. The use of vibrant colors and expressive environments informed the mood board and character design.
+3. **Infamous (series)** – Provided insight into how empowerment can be tied to narrative progression and player choice. The transformation of the protagonist over time parallels Kael’s journey from outcast to leader.
+4. **Say No! More** – Reinforced the idea that empowerment can be humorous, bold, and emotionally resonant. It helped shape the NPC empowerment scenes and the emotional payoff of helping others.
 
-**Impact on Project**:  
-These references helped refine the core gameplay loop around transformation and agency. They also guided the visual and emotional tone, ensuring that empowerment is felt both mechanically and narratively.
+- **Impact on Project**:
+These references helped refine the emotional and mechanical aspects of empowerment in the game. They guided the pacing, visual tone, and character development, ensuring that the theme of rising against adversity is felt throughout the gameplay and story.
