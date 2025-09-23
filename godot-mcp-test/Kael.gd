@@ -1,19 +1,21 @@
-# Kael.gd - The Lightbearer character controller
+# Kael.gd - The Lightbearer character controller with directional arrow
 extends CharacterBody2D
 
-const SPEED = 200.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const LightPulseScene = preload("res://LightPulse.tscn")
 
 var ember_energy = 100.0
 var max_ember_energy = 100.0
 var light_pulse_cost = 15.0
+var facing_direction = 1  # 1 for right, -1 for left
 
 signal energy_changed(new_energy)
 signal light_pulse_used(kael_position)
 
 @onready var light_aura: PointLight2D
 @onready var camera: Camera2D
+@onready var direction_arrow: Polygon2D
 
 func _ready():
 	print("Kael - The Lightbearer awakens!")
@@ -21,8 +23,10 @@ func _ready():
 	print("Journey eastward to reach the village and save the villagers!")
 	
 	light_aura = get_node("LightAura")
-	camera = get_node("../../Camera2D")
+	camera = get_node("Camera2D")
+	direction_arrow = get_node("DirectionArrow")
 	update_light_aura()
+	update_direction_arrow()
 
 func _physics_process(delta):
 	# Apply gravity
@@ -33,6 +37,12 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
+		# Update facing direction
+		if direction > 0:
+			facing_direction = 1  # Moving right
+		elif direction < 0:
+			facing_direction = -1  # Moving left
+		update_direction_arrow()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
@@ -48,6 +58,21 @@ func _physics_process(delta):
 	
 	# Update camera to follow Kael
 	update_camera()
+
+func update_direction_arrow():
+	"""Update arrow direction based on movement"""
+	if direction_arrow:
+		if facing_direction == 1:  # Facing right
+			# Right-pointing arrow: tip at (6,0), base from (-6,-3) to (-6,3)
+			direction_arrow.polygon = PackedVector2Array([Vector2(6, 0), Vector2(-6, -3), Vector2(-3, -3), Vector2(-3, 3), Vector2(-6, 3)])
+		else:  # Facing left
+			# Left-pointing arrow: tip at (-6,0), base from (6,-3) to (6,3)
+			direction_arrow.polygon = PackedVector2Array([Vector2(-6, 0), Vector2(6, -3), Vector2(3, -3), Vector2(3, 3), Vector2(6, 3)])
+		
+		# Show arrow when moving, fade when idle
+		var is_moving = abs(velocity.x) > 10
+		var target_alpha = 0.8 if is_moving else 0.3
+		direction_arrow.color.a = target_alpha
 
 func update_camera():
 	"""Make camera follow Kael within limits"""
